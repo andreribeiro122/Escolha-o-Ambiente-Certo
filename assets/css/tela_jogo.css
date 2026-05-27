@@ -1,0 +1,138 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo escuro atrás do jogo, caso a tela seja muito grande */
+body {
+	background-color: #1e120c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	overflow: hidden; /* Evita barras de rolagem */
+}
+
+/* Contêiner principal que segura a imagem e a interface */
+.game-container {
+	max-height: 100%;
+}
+
+/* Imagem de fundo do mapa */
+.game-bg {
+	width: 100%;
+	display: block;
+	/* A imagem fornecida já tem a moldura e o fundo de madeira */
+}
+
+/* Camada da Interface de Usuário (UI) posicionada na madeira inferior */
+.ui-layer {
+	position: absolute;
+	bottom: 6%; /* Ajuste este valor para subir ou descer os botões na madeira */
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 10%;
+}
+
+/* Estilo base para botões */
+.btn {
+	cursor: pointer;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: none;
+	transition:
+		transform 0.1s ease,
+		filter 0.2s ease;
+}
+
+.btn:active {
+	transform: translateY(3px); /* Efeito de botão sendo apertado */
+}
+
+.btn:hover {
+	filter: brightness(1.15); /* Fica mais claro ao passar o mouse */
+}
+
+/* Botão "Voltar" (Inferior Esquerdo) */
+.btn-back {
+	background: linear-gradient(to bottom, #7b4c2a, #4a2d18);
+	color: #fcebbb;
+	border: 3px solid #2b170c;
+	border-radius: 10px;
+	padding: 18px 32px;
+	font-size: 20px;
+	box-shadow:
+		0 6px 0 #2b170c,
+		0 8px 10px rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Agrupa o botão de dica e a pontuação na direita */
+.right-controls {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+}
+
+/* Botão de "Dica" */
+.btn-hint {
+	background: linear-gradient(to bottom, #e3b754, #b9842a);
+	color: #2b170c;
+	border: 3px solid #6b4710;
+	border-radius: 10px;
+	padding: 16px 22px;
+	font-size: 20px;
+	box-shadow:
+		0 6px 0 #6b4710,
+		0 8px 10px rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Destaque para o custo de pontos na dica */
+.hint-cost {
+	color: #9e1b1b; /* Vermelho escuro para indicar custo */
+	font-weight: 900;
+	font-size: 20px;
+	margin-left: 5px;
+}
+
+/* Display de Pontuação (Inferior Direito) */
+.score-display {
+	background: linear-gradient(to bottom, #3a2214, #21120a);
+	color: #ffd700; /* Cor dourada */
+	border: 3px solid #140b06;
+	padding: 18px 32px;
+	border-radius: 12px;
+	font-size: 24px;
+	font-weight: 900;
+	box-shadow:
+		inset 0 4px 8px rgba(0, 0, 0, 0.7),
+		0 4px 6px rgba(0, 0, 0, 0.4);
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.score-display span {
+	color: #ffffff; /* O número em si fica branco para dar contraste */
+	margin-left: 8px;
+}
+
+/* Para ajustar o visual do clique nos botões devido à sombra 3D */
+.btn-back:active,
+.btn-hint:active {
+	box-shadow:
+		0 2px 0 #2b170c,
+		0 3px 5px rgba(0, 0, 0, 0.5);
+	transform: translateY(4px);
+}
+
+.btn-hint:active {
+	box-shadow:
+		0 2px 0 #6b4710,
+		0 3px 5px rgba(0, 0, 0, 0.5);
+}
