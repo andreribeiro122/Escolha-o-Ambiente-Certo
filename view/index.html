@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>EcoQuest - Início</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tela_inicial.css">
+</head>
+<body class="bg-wood-planks min-h-screen flex flex-col items-center justify-center p-4">
+
+  <!-- BEGIN: Navigation Layer (Top) -->
+  <nav class="fixed top-6 left-6 right-6 flex justify-between items-start pointer-events-none z-20">
+    <!-- Top Left: Glossário -->
+    <div class="pointer-events-auto">
+      <button
+        class="btn-wood px-6 py-2 rounded-lg text-sm uppercase tracking-wider"
+        data-purpose="glossary-button"
+        onclick="document.getElementById('glossary-modal').classList.remove('hidden')"
+      >
+        Glossário
+      </button>
+    </div>
+    <!-- Top Right: Configurações Icon -->
+    <div class="pointer-events-auto">
+      <button class="icon-btn" data-purpose="settings-icon-button">
+        <span class="material-symbols-outlined">settings</span>
+      </button>
+    </div>
+  </nav>
+  <!-- END: Navigation Layer -->
+
+  <!-- BEGIN: Main Center Content -->
+  <main class="relative z-10 w-full max-w-2xl" data-purpose="main-menu-container">
+    <div class="wood-panel p-8 flex flex-col items-center gap-8">
+      <!-- Game Logo -->
+      <div class="w-full max-w-md mx-auto" data-purpose="game-logo">
+        <img
+          alt="Exploradores dos Ambientes Logo"
+          class="w-full h-auto drop-shadow-2xl"
+          src="../assets/images/LOGO_JOGO.png"
+        >
+      </div>
+    </div>
+  </main>
+
+  <div class="flex flex-col items-center gap-4 w-full mt-8 relative z-10" data-purpose="external-menu-buttons">
+    <button
+      class="btn-gold py-4 px-12 rounded-xl text-xl uppercase tracking-widest hover:scale-[1.02] min-w-[320px]"
+      data-purpose="start-game"
+    >
+      Iniciar Jogo
+    </button>
+    <div class="flex gap-4">
+      <button class="btn-wood px-8 py-3 rounded-lg text-sm uppercase tracking-wide" data-purpose="settings-secondary">
+        Configurações
+      </button>
+      <button class="btn-danger px-8 py-3 rounded-lg text-sm uppercase tracking-wide" data-purpose="exit-game">
+        Sair
+      </button>
+    </div>
+  </div>
+  <!-- END: Main Center Content -->
+
+  <!-- BEGIN: HUD / Footer Layer -->
+  <footer class="fixed bottom-6 left-6 right-6 flex justify-between items-end pointer-events-none z-20">
+    <!-- Bottom Left: Sobre a Equipe -->
+    <div class="pointer-events-auto">
+      <button class="btn-wood px-5 py-2 rounded-md text-xs uppercase" data-purpose="team-about-button">
+        Sobre a Equipe
+      </button>
+    </div>
+    <!-- Center Tagline -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 pb-2 text-white/60 text-[10px] uppercase tracking-[0.2em] font-semibold text-center whitespace-nowrap">
+      Embarque em uma jornada épica pela sustentabilidade...
+    </div>
+    <!-- Bottom Right: Points Display -->
+    <div class="pointer-events-auto">
+      <div class="hud-box" data-purpose="score-display">
+        RECORDE DE PONTOS: 0
+      </div>
+    </div>
+  </footer>
+  <!-- END: HUD / Footer Layer -->
+
+  <!-- BEGIN: GLOSSARY MODAL -->
+  <div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm hidden" id="glossary-modal">
+    <div class="wood-panel w-[90%] max-w-2xl max-h-[85vh] flex flex-col p-0 overflow-hidden" data-purpose="glossary-popup">
+
+      <!-- Modal Header -->
+      <div class="flex justify-between items-center p-4 md:p-6 border-b-4 border-[#2c1b12] shrink-0">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-[#ffc107] text-3xl">menu_book</span>
+          <h2 class="text-2xl font-game-title text-[#ffc107]">Glossário</h2>
+        </div>
+        <button
+          class="icon-btn hover:bg-red-900 transition-colors"
+          onclick="document.getElementById('glossary-modal').classList.add('hidden')"
+        >
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <!-- Scrollable Content — preenchido via JS a partir de items.json -->
+      <div class="custom-scroll overflow-y-auto p-4 md:p-6 space-y-4 flex-grow" id="glossary-content">
+        <p class="glossary-group-label" style="color:rgba(255,255,255,0.3)">Carregando...</p>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 md:p-6 border-t-4 border-[#2c1b12] flex justify-center bg-[#2c1b12]/20 shrink-0">
+        <button
+          class="btn-wood px-14 py-3 rounded-xl text-md uppercase tracking-widest flex items-center gap-2 group"
+          onclick="document.getElementById('glossary-modal').classList.add('hidden')"
+        >
+          <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
+          Voltar
+        </button>
+      </div>
+
+    </div>
+  </div>
+  <!-- END: GLOSSARY MODAL -->
+
+
+  <!-- BEGIN: Glossary dynamic loader -->
+  <script>
+    const GROUP_LABELS = {
+      mar:      '🌊 Mar',
+      deserto:  '🏜️ Deserto',
+      gelo:     '🧊 Gelo',
+      floresta: '🌳 Floresta',
+      lixao:    '🗑️ Lixão',
+      cidade:   '🏙️ Cidade',
+    };
+
+    async function loadGlossary() {
+      const container = document.getElementById('glossary-content');
+
+      let items;
+      try {
+        const res = await fetch('../assets/dados/intens.json');
+        if (!res.ok) throw new Error('Fetch failed');
+        items = await res.json();
+      } catch (err) {
+        container.innerHTML = '<p class="glossary-group-label" style="color:#f87171">Erro ao carregar o glossário.</p>';
+        console.error(err);
+        return;
+      }
+
+      // Group by ambiente preserving order of first appearance
+      const groups = {};
+      for (const item of items) {
+        if (!groups[item.ambiente]) groups[item.ambiente] = [];
+        groups[item.ambiente].push(item);
+      }
+
+      const fragments = [];
+      for (const [ambiente, groupItems] of Object.entries(groups)) {
+        const label = GROUP_LABELS[ambiente] ?? ambiente;
+        fragments.push(`<p class="glossary-group-label">${label}</p>`);
+
+        for (const item of groupItems) {
+          fragments.push(`
+            <div class="glossary-item">
+              <div class="glossary-icon">${item.emoji}</div>
+              <div>
+                <h3 class="glossary-title">${item.nome}</h3>
+                <p class="glossary-desc">${item.descricao}</p>
+              </div>
+            </div>
+          `);
+        }
+      }
+
+      container.innerHTML = fragments.join('\n');
+    }
+
+    // Load when modal opens (lazy) — only once
+    let glossaryLoaded = false;
+    document.querySelector('[data-purpose="glossary-button"]').addEventListener('click', () => {
+      if (!glossaryLoaded) { loadGlossary(); glossaryLoaded = true; }
+    });
+  </script>
+  <!-- END: Glossary dynamic loader -->
+
+</body>
+</html>
