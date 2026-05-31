@@ -32,7 +32,7 @@ body,
 }
 
 /* ----------------------------------------------------------
-   4. Botões
+   4. Botões (Blindados contra o Bootstrap)
    ---------------------------------------------------------- */
 
 /* Botão genérico de madeira */
@@ -44,13 +44,18 @@ body,
 	color: #ffffff;
 	font-weight: 600;
 }
-.btn-wood:active {
-	transform: translateY(2px);
-	box-shadow: 0 2px 0 #2c1b12;
-}
-
 .btn-wood:hover {
-	filter: brightness(1.15); /* Clareia a madeira levemente */
+	background: #6d4b41;
+	color: #ffffff;
+}
+.btn-wood:active,
+.btn-wood:focus {
+	background: #4e342e !important; /* Mantém a cor marrom ao clicar */
+	color: #ffffff !important;
+	transform: translateY(2px);
+	box-shadow: 0 2px 0 #2c1b12 !important;
+	border-color: #2c1b12 !important;
+	outline: none !important; /* Tira aquela borda de foco padrão do navegador */
 }
 
 /* Gold / primary action button */
@@ -64,10 +69,16 @@ body,
 }
 .btn-gold:hover {
 	background: #ffca28;
+	color: #3e2723;
 }
-.btn-gold:active {
+.btn-gold:active,
+.btn-gold:focus {
+	background: #e6ae06 !important; /* Dourado levemente mais escuro no clique */
+	color: #3e2723 !important;
 	transform: translateY(3px);
-	box-shadow: 0 3px 0 #8d6a00;
+	box-shadow: 0 3px 0 #8d6a00 !important;
+	border-color: #bf9000 !important;
+	outline: none !important;
 }
 
 /* Danger / exit button */
@@ -79,13 +90,18 @@ body,
 	font-weight: 600;
 	transition: all 0.1s;
 }
-.btn-danger:active {
-	transform: translateY(2px);
-	box-shadow: 0 2px 0 #7f1d1d;
-}
-
 .btn-danger:hover {
-	filter: brightness(1.15); /* Clareia o vermelho levemente */
+	background: #dc2626;
+	color: #ffffff;
+}
+.btn-danger:active,
+.btn-danger:focus {
+	background: #991b1b !important;
+	color: #ffffff !important;
+	transform: translateY(2px);
+	box-shadow: 0 2px 0 #7f1d1d !important;
+	border-color: #7f1d1d !important;
+	outline: none !important;
 }
 
 /* ----------------------------------------------------------
