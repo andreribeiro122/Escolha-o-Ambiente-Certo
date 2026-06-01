@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../assets/css/CSS.css"; // Importando o seu CSS da tela final
+import "../assets/css/CSS.css";
 
 function TelaFinal({
 	pontuacaoAtual,

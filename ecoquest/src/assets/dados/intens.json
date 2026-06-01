@@ -1,362 +1,362 @@
 [
-  {
-    "id": 1,
-    "nome": "Tubarão",
-    "emoji": "🦈",
-    "ambiente": "mar",
-    "descricao": "É o maior predador dos oceanos, conhecido por suas barbatanas e dentes afiados. Essencial para o equilíbrio do ecossistema marinho.",
-    "dicas": [
-      "É um ser vivo que precisa de água para sobreviver.",
-      "É um animal aquático com guelras que vive em ambientes salgados.",
-      "É o maior predador dos oceanos, conhecido por suas barbatanas e dentes afiados."
-    ]
-  },
-  {
-    "id": 2,
-    "nome": "Golfinho",
-    "emoji": "🐬",
-    "ambiente": "mar",
-    "descricao": "Mamífero aquático altamente inteligente que respira ar e se comunica por sons. Vive em rios e oceanos e é famoso por saltar fora da água.",
-    "dicas": [
-      "É um animal muito inteligente que vive em grupos.",
-      "É um mamífero aquático que respira ar e se comunica por sons.",
-      "Vive em rios e oceanos, é famoso por saltar fora da água e se relacionar com humanos."
-    ]
-  },
-  {
-    "id": 3,
-    "nome": "Tartaruga Marinha",
-    "emoji": "🐢",
-    "ambiente": "mar",
-    "descricao": "Réptil que nada nos oceanos tropicais, desova em praias e está ameaçado pela poluição plástica. Passa a maior parte da vida dentro d'água.",
-    "dicas": [
-      "É um réptil que passa a maior parte do tempo em ambientes úmidos.",
-      "Ela desova em praias, mas vive na água na maior parte de sua vida.",
-      "Nada nos oceanos tropicais e está ameaçada pela poluição plástica."
-    ]
-  },
-  {
-    "id": 4,
-    "nome": "Âncora",
-    "emoji": "⚓",
-    "ambiente": "mar",
-    "descricao": "Objeto de metal pesado usado em navios e barcos para prender a embarcação ao fundo do mar ou rio e mantê-la fixo em um lugar.",
-    "dicas": [
-      "É um objeto de metal pesado usado por embarcações.",
-      "É jogada na água para manter um barco fixo em um lugar.",
-      "É usada em navios e barcos para prender a embarcação ao fundo do mar ou rio."
-    ]
-  },
-  {
-    "id": 5,
-    "nome": "Alga",
-    "emoji": "🌿",
-    "ambiente": "mar",
-    "descricao": "Planta aquática encontrada em rios, lagos e oceanos que realiza fotossíntese e forma a base da cadeia alimentar marinha.",
-    "dicas": [
-      "É um ser vivo que realiza fotossíntese em ambiente úmido.",
-      "Cresce submersa ou flutuando em ambientes aquáticos.",
-      "É uma planta aquática encontrada em rios, lagos e oceanos, base da cadeia alimentar marinha."
-    ]
-  },
-  {
-    "id": 6,
-    "nome": "Cacto",
-    "emoji": "🌵",
-    "ambiente": "deserto",
-    "descricao": "Planta símbolo das regiões áridas, capaz de sobreviver meses sem água graças ao tecido interno que armazena líquido. Tem espinhos no lugar de folhas.",
-    "dicas": [
-      "É uma planta que armazena líquido para sobreviver longos períodos.",
-      "Tem espinhos no lugar de folhas e vive em locais com pouca chuva.",
-      "É a planta símbolo das regiões áridas, capaz de sobreviver meses sem água."
-    ]
-  },
-  {
-    "id": 7,
-    "nome": "Camelo",
-    "emoji": "🐪",
-    "ambiente": "deserto",
-    "descricao": "Animal de grande porte adaptado a regiões áridas cujas corcovas armazenam gordura que vira energia em longas travessias sem água.",
-    "dicas": [
-      "É um animal de grande porte usado como transporte em regiões quentes.",
-      "Tem uma ou duas corcovas e consegue ficar muito tempo sem beber água.",
-      "Vive em regiões áridas, suas corcovas armazenam gordura que vira energia em longas travessias."
-    ]
-  },
-  {
-    "id": 8,
-    "nome": "Escorpião",
-    "emoji": "🦂",
-    "ambiente": "deserto",
-    "descricao": "Artrópode noturno com oito patas, pinças e ferrão venenoso. Vive enterrado na areia do deserto para evitar o calor extremo do dia.",
-    "dicas": [
-      "É um animal peçonhento que prefere se esconder durante o dia.",
-      "Tem oito patas, pinças e um ferrão com veneno na cauda.",
-      "É um artrópode noturno que vive enterrado na areia do deserto para evitar o calor."
-    ]
-  },
-  {
-    "id": 9,
-    "nome": "Pirâmide",
-    "emoji": "🏛️",
-    "ambiente": "deserto",
-    "descricao": "Monumento histórico de forma triangular construído por antigas civilizações egípcias no meio da areia de uma das regiões mais áridas do mundo.",
-    "dicas": [
-      "É uma construção histórica de forma triangular feita de pedra.",
-      "Foi construída por antigas civilizações em regiões muito quentes e secas.",
-      "É um monumento egípcio encontrado no meio da areia, em uma das regiões mais áridas do mundo."
-    ]
-  },
-  {
-    "id": 10,
-    "nome": "Raposa do Deserto",
-    "emoji": "🦊",
-    "ambiente": "deserto",
-    "descricao": "O fennec é um pequeno carnívoro das regiões áridas com orelhas enormes para dissipar calor. Obtém água apenas dos alimentos que consome.",
-    "dicas": [
-      "É um animal de pequeno porte com orelhas muito grandes.",
-      "Suas orelhas grandes ajudam a dissipar o calor do corpo.",
-      "É o fennec, um pequeno carnívoro das regiões áridas que obtém água apenas dos alimentos que consome."
-    ]
-  },
-  {
-    "id": 11,
-    "nome": "Urso Polar",
-    "emoji": "🐻‍❄️",
-    "ambiente": "gelo",
-    "descricao": "Mamífero de grande porte que vive no Ártico, caça focas no gelo e está ameaçado pelo derretimento das geleiras causado pelas mudanças climáticas.",
-    "dicas": [
-      "É um mamífero de grande porte com pelagem clara.",
-      "Tem pelagem branca e vive em regiões com temperaturas muito negativas.",
-      "Vive no Ártico, caça focas no gelo e está ameaçado pelo derretimento das geleiras."
-    ]
-  },
-  {
-    "id": 12,
-    "nome": "Pinguim",
-    "emoji": "🐧",
-    "ambiente": "gelo",
-    "descricao": "Ave que não voa, mas nada com maestria. Habita a Antártida em grandes colônias e possui penas impermeáveis e gordura corporal para suportar o frio extremo.",
-    "dicas": [
-      "É uma ave que não consegue voar, mas nada muito bem.",
-      "Vive em um dos ambientes mais frios do planeta em grandes colônias.",
-      "Habita a Antártida, tem penas impermeáveis e gordura corporal para suportar o frio extremo."
-    ]
-  },
-  {
-    "id": 13,
-    "nome": "Foca",
-    "emoji": "🦭",
-    "ambiente": "gelo",
-    "descricao": "Mamífero das regiões polares com espessa camada de gordura protetora. Descansa sobre o gelo e é a presa principal do urso polar.",
-    "dicas": [
-      "É um mamífero que vive tanto na água quanto em superfícies geladas.",
-      "Tem uma camada grossa de gordura para se proteger do frio extremo.",
-      "Vive nas regiões polares, descansa sobre o gelo e é presa principal do urso polar."
-    ]
-  },
-  {
-    "id": 14,
-    "nome": "Cubo de Gelo",
-    "emoji": "🧊",
-    "ambiente": "gelo",
-    "descricao": "Estado sólido da água, abundante nos polos e em geleiras das regiões mais frias do planeta. Indica temperaturas abaixo de zero grau.",
-    "dicas": [
-      "É uma forma sólida de uma substância muito comum na natureza.",
-      "É água congelada, encontrada naturalmente em regiões com temperaturas abaixo de zero.",
-      "É o estado sólido da água, abundante nos polos e em geleiras das regiões mais frias do planeta."
-    ]
-  },
-  {
-    "id": 15,
-    "nome": "Boneco de Neve",
-    "emoji": "⛄",
-    "ambiente": "gelo",
-    "descricao": "Escultura feita de neve compactada, comum em regiões polares ou de inverno rigoroso. Representa o inverno e as baixas temperaturas da natureza.",
-    "dicas": [
-      "É uma figura feita por humanos em dias muito frios.",
-      "É construído com um material branco que só aparece em temperaturas muito baixas.",
-      "É uma escultura feita de neve compactada, comum em regiões polares ou de inverno rigoroso."
-    ]
-  },
-  {
-    "id": 16,
-    "nome": "Onça-Pintada",
-    "emoji": "🐆",
-    "ambiente": "floresta",
-    "descricao": "Maior felino das Américas, predador de topo da floresta amazônica. Suas manchas ajudam na camuflagem e está ameaçada pelo desmatamento.",
-    "dicas": [
-      "É o maior felino das Américas.",
-      "Tem manchas pelo corpo e vive em áreas de mata densa.",
-      "Habita a floresta amazônica, é predador de topo e está ameaçada pelo desmatamento."
-    ]
-  },
-  {
-    "id": 17,
-    "nome": "Tucano",
-    "emoji": "🦜",
-    "ambiente": "floresta",
-    "descricao": "Símbolo da biodiversidade tropical com bico enorme e colorido. Vive no topo das árvores, alimenta-se de frutos e dispersa sementes pela floresta.",
-    "dicas": [
-      "É uma ave muito colorida com um bico bem característico.",
-      "Tem um bico enorme e colorido e se alimenta principalmente de frutos.",
-      "É símbolo da biodiversidade tropical, vive no topo das árvores e dispersa sementes pela floresta."
-    ]
-  },
-  {
-    "id": 18,
-    "nome": "Cogumelo",
-    "emoji": "🍄",
-    "ambiente": "floresta",
-    "descricao": "Fungo que prospera no chão úmido das florestas, crescendo no solo ou em troncos em decomposição. Fundamental para o ciclo de nutrientes do ecossistema.",
-    "dicas": [
-      "É um organismo que cresce em locais úmidos e sombreados.",
-      "Não é planta nem animal, cresce no solo ou em troncos em decomposição.",
-      "É um fungo que prospera no chão úmido das florestas, fundamental para a decomposição e o ciclo de nutrientes."
-    ]
-  },
-  {
-    "id": 19,
-    "nome": "Macaco",
-    "emoji": "🐒",
-    "ambiente": "floresta",
-    "descricao": "Primata de florestas tropicais que usa os braços para se balançar entre galhos. Come frutos, dispersa sementes e vive no dossel das matas.",
-    "dicas": [
-      "É um animal que vive em grupos e se locomove agilmente.",
-      "Usa os braços para se balançar entre galhos de árvores altas.",
-      "É um primata de florestas tropicais que come frutos, dispersa sementes e vive no dossel das matas."
-    ]
-  },
-  {
-    "id": 20,
-    "nome": "Árvore",
-    "emoji": "🌳",
-    "ambiente": "floresta",
-    "descricao": "Elemento principal das florestas: abriga animais, regula o clima e retém carbono da atmosfera. Tem raízes, tronco, galhos e folhas, podendo atingir grande altura.",
-    "dicas": [
-      "É um ser vivo que realiza fotossíntese e fornece oxigênio.",
-      "Tem raízes, tronco, galhos e folhas, podendo atingir grande altura.",
-      "É o elemento principal das florestas, abriga animais, regula o clima e retém o carbono da atmosfera."
-    ]
-  },
-  {
-    "id": 21,
-    "nome": "Garrafa PET",
-    "emoji": "🧴",
-    "ambiente": "lixao",
-    "descricao": "Embalagem plástica que leva até 400 anos para se degradar. Quando não reciclada, é um dos maiores vilões dos lixões e dos oceanos.",
-    "dicas": [
-      "É um objeto descartável feito de um material que demora muito para se decompor.",
-      "É feita de plástico e, quando não reciclada, é descartada incorretamente.",
-      "É uma embalagem plástica que leva até 400 anos para se degradar e é um dos maiores vilões dos lixões."
-    ]
-  },
-  {
-    "id": 22,
-    "nome": "Pneu Velho",
-    "emoji": "🔧",
-    "ambiente": "lixao",
-    "descricao": "Resíduo de borracha vulcanizada que não se decompõe facilmente. Quando descartado irregularmente, acumula água e vira criadouro do mosquito da dengue.",
-    "dicas": [
-      "É uma peça de borracha usada em veículos que, quando descartada, causa problemas.",
-      "Quando jogado irregularmente, acumula água e vira criadouro de mosquitos.",
-      "É um resíduo de borracha vulcanizada que não se decompõe facilmente e é frequentemente descartado em lixões, favorecendo a dengue."
-    ]
-  },
-  {
-    "id": 23,
-    "nome": "Lâmpada Queimada",
-    "emoji": "💡",
-    "ambiente": "lixao",
-    "descricao": "Lâmpadas fluorescentes contêm mercúrio e devem ser levadas a ecopontos. Quando descartadas em lixões, contaminam o solo e o lençol freático.",
-    "dicas": [
-      "É um objeto eletrônico que, após o fim da sua vida útil, precisa de descarte especial.",
-      "Contém substâncias tóxicas que contaminam o solo se descartada incorretamente.",
-      "Uma lâmpada fluorescente contém mercúrio e deve ser levada a ecopontos, mas muitas acabam em lixões contaminando o lençol freático."
-    ]
-  },
-  {
-    "id": 24,
-    "nome": "Caixa de Papelão",
-    "emoji": "📦",
-    "ambiente": "lixao",
-    "descricao": "Embalagem reciclável muito comum. Quando não vai para a coleta seletiva, acaba em lixões ocupando espaço que poderia ser evitado com o descarte correto.",
-    "dicas": [
-      "É uma embalagem muito comum usada para transportar objetos.",
-      "É feita de papel comprimido e, quando descartada, vai para locais de resíduos.",
-      "É uma embalagem reciclável que, quando não vai para a coleta seletiva, acaba em lixões ocupando espaço desnecessário."
-    ]
-  },
-  {
-    "id": 25,
-    "nome": "Lata Amassada",
-    "emoji": "🥫",
-    "ambiente": "lixao",
-    "descricao": "Embalagem metálica de alumínio ou aço 100% reciclável. Quando descartada em lixões, pode levar até 200 anos para se decompor na natureza.",
-    "dicas": [
-      "É um objeto metálico usado como embalagem de alimentos ou bebidas.",
-      "É feita de alumínio ou aço e, quando descartada, demora anos para se decompor.",
-      "É uma embalagem metálica que pode ser reciclada, mas frequentemente é descartada em lixões, levando até 200 anos para se decompor."
-    ]
-  },
-  {
-    "id": 26,
-    "nome": "Carro",
-    "emoji": "🚗",
-    "ambiente": "cidade",
-    "descricao": "Principal meio de transporte individual urbano e responsável por grande parte da poluição do ar nas cidades. Circula por ruas e avenidas do ambiente urbano.",
-    "dicas": [
-      "É um veículo motorizado muito comum no dia a dia das pessoas.",
-      "Circula por ruas e avenidas e é o principal meio de transporte individual urbano.",
-      "É o automóvel particular, símbolo da mobilidade urbana, responsável por grande parte da poluição do ar nas cidades."
-    ]
-  },
-  {
-    "id": 27,
-    "nome": "Prédio",
-    "emoji": "🏢",
-    "ambiente": "cidade",
-    "descricao": "Construção urbana de múltiplos pavimentos em concreto e aço que concentra moradia e trabalho. Símbolo da verticalização das cidades modernas.",
-    "dicas": [
-      "É uma grande construção feita pelo ser humano com vários andares.",
-      "É uma edificação vertical de concreto e aço usada para morar ou trabalhar.",
-      "É uma construção urbana de múltiplos pavimentos que concentra moradia e trabalho, símbolo da verticalização das cidades modernas."
-    ]
-  },
-  {
-    "id": 28,
-    "nome": "Semáforo",
-    "emoji": "🚦",
-    "ambiente": "cidade",
-    "descricao": "Dispositivo de sinalização instalado em cruzamentos urbanos com três cores (vermelho, amarelo e verde) para controlar o fluxo de veículos e a segurança de pedestres.",
-    "dicas": [
-      "É um equipamento com luzes coloridas visto nas ruas.",
-      "Tem três cores (vermelho, amarelo e verde) e serve para organizar o trânsito.",
-      "É um dispositivo de sinalização instalado em cruzamentos urbanos para controlar o fluxo de veículos e a segurança de pedestres."
-    ]
-  },
-  {
-    "id": 29,
-    "nome": "Ônibus",
-    "emoji": "🚌",
-    "ambiente": "cidade",
-    "descricao": "Principal transporte público de superfície nas cidades. Reduz o número de carros nas ruas e a emissão de poluentes ao transportar muitas pessoas de uma vez.",
-    "dicas": [
-      "É um veículo grande que transporta muitas pessoas ao mesmo tempo.",
-      "Segue rotas fixas pelas ruas e é um meio de transporte coletivo.",
-      "É o principal transporte público de superfície nas cidades, reduz o número de carros nas ruas e a emissão de poluentes."
-    ]
-  },
-  {
-    "id": 30,
-    "nome": "Poste de Luz",
-    "emoji": "💡",
-    "ambiente": "cidade",
-    "descricao": "Estrutura metálica de iluminação pública fixada nas vias urbanas que garante segurança e visibilidade nas cidades durante o período noturno.",
-    "dicas": [
-      "É uma estrutura alta que ilumina um espaço durante a noite.",
-      "É instalado nas calçadas e ruas para garantir visibilidade no período noturno.",
-      "É a iluminação pública urbana, estrutura metálica fixada nas vias que garante segurança e visibilidade nas cidades à noite."
-    ]
-  }
+	{
+		"id": 1,
+		"nome": "Tubarão",
+		"emoji": "🦈",
+		"ambiente": "mar",
+		"descricao": "É o maior predador dos oceanos, conhecido por suas barbatanas e dentes afiados. Essencial para o equilíbrio do ecossistema marinho.",
+		"dicas": [
+			"É um ser vivo que precisa de água para sobreviver.",
+			"É um animal aquático com guelras que vive em ambientes salgados.",
+			"É o maior predador dos oceanos, conhecido por suas barbatanas e dentes afiados."
+		]
+	},
+	{
+		"id": 2,
+		"nome": "Golfinho",
+		"emoji": "🐬",
+		"ambiente": "mar",
+		"descricao": "Mamífero aquático altamente inteligente que respira ar e se comunica por sons. Vive em rios e oceanos e é famoso por saltar fora da água.",
+		"dicas": [
+			"É um animal muito inteligente que vive em grupos.",
+			"É um mamífero aquático que respira ar e se comunica por sons.",
+			"Vive em rios e oceanos, é famoso por saltar fora da água e se relacionar com humanos."
+		]
+	},
+	{
+		"id": 3,
+		"nome": "Tartaruga Marinha",
+		"emoji": "🐢",
+		"ambiente": "mar",
+		"descricao": "Réptil que nada nos oceanos tropicais, desova em praias e está ameaçado pela poluição plástica. Passa a maior parte da vida dentro d'água.",
+		"dicas": [
+			"É um réptil que passa a maior parte do tempo em ambientes úmidos.",
+			"Ela desova em praias, mas vive na água na maior parte de sua vida.",
+			"Nada nos oceanos tropicais e está ameaçada pela poluição plástica."
+		]
+	},
+	{
+		"id": 4,
+		"nome": "Âncora",
+		"emoji": "⚓",
+		"ambiente": "mar",
+		"descricao": "Objeto de metal pesado usado em navios e barcos para prender a embarcação ao fundo do mar ou rio e mantê-la fixo em um lugar.",
+		"dicas": [
+			"É um objeto de metal pesado usado por embarcações.",
+			"É jogada na água para manter um barco fixo em um lugar.",
+			"É usada em navios e barcos para prender a embarcação ao fundo do mar ou rio."
+		]
+	},
+	{
+		"id": 5,
+		"nome": "Alga",
+		"emoji": "🌿",
+		"ambiente": "mar",
+		"descricao": "Planta aquática encontrada em rios, lagos e oceanos que realiza fotossíntese e forma a base da cadeia alimentar marinha.",
+		"dicas": [
+			"É um ser vivo que realiza fotossíntese em ambiente úmido.",
+			"Cresce submersa ou flutuando em ambientes aquáticos.",
+			"É uma planta aquática encontrada em rios, lagos e oceanos, base da cadeia alimentar marinha."
+		]
+	},
+	{
+		"id": 6,
+		"nome": "Cacto",
+		"emoji": "🌵",
+		"ambiente": "deserto",
+		"descricao": "Planta símbolo das regiões áridas, capaz de sobreviver meses sem água graças ao tecido interno que armazena líquido. Tem espinhos no lugar de folhas.",
+		"dicas": [
+			"É uma planta que armazena líquido para sobreviver longos períodos.",
+			"Tem espinhos no lugar de folhas e vive em locais com pouca chuva.",
+			"É a planta símbolo das regiões áridas, capaz de sobreviver meses sem água."
+		]
+	},
+	{
+		"id": 7,
+		"nome": "Camelo",
+		"emoji": "🐪",
+		"ambiente": "deserto",
+		"descricao": "Animal de grande porte adaptado a regiões áridas cujas corcovas armazenam gordura que vira energia em longas travessias sem água.",
+		"dicas": [
+			"É um animal de grande porte usado como transporte em regiões quentes.",
+			"Tem uma ou duas corcovas e consegue ficar muito tempo sem beber água.",
+			"Vive em regiões áridas, suas corcovas armazenam gordura que vira energia em longas travessias."
+		]
+	},
+	{
+		"id": 8,
+		"nome": "Escorpião",
+		"emoji": "🦂",
+		"ambiente": "deserto",
+		"descricao": "Artrópode noturno com oito patas, pinças e ferrão venenoso. Vive enterrado na areia do deserto para evitar o calor extremo do dia.",
+		"dicas": [
+			"É um animal peçonhento que prefere se esconder durante o dia.",
+			"Tem oito patas, pinças e um ferrão com veneno na cauda.",
+			"É um artrópode noturno que vive enterrado na areia do deserto para evitar o calor."
+		]
+	},
+	{
+		"id": 9,
+		"nome": "Pirâmide",
+		"emoji": "🏛️",
+		"ambiente": "deserto",
+		"descricao": "Monumento histórico de forma triangular construído por antigas civilizações egípcias no meio da areia de uma das regiões mais áridas do mundo.",
+		"dicas": [
+			"É uma construção histórica de forma triangular feita de pedra.",
+			"Foi construída por antigas civilizações em regiões muito quentes e secas.",
+			"É um monumento egípcio encontrado no meio da areia, em uma das regiões mais áridas do mundo."
+		]
+	},
+	{
+		"id": 10,
+		"nome": "Raposa do Deserto",
+		"emoji": "🦊",
+		"ambiente": "deserto",
+		"descricao": "O fennec é um pequeno carnívoro das regiões áridas com orelhas enormes para dissipar calor. Obtém água apenas dos alimentos que consome.",
+		"dicas": [
+			"É um animal de pequeno porte com orelhas muito grandes.",
+			"Suas orelhas grandes ajudam a dissipar o calor do corpo.",
+			"É o fennec, um pequeno carnívoro das regiões áridas que obtém água apenas dos alimentos que consome."
+		]
+	},
+	{
+		"id": 11,
+		"nome": "Urso Polar",
+		"emoji": "🐻‍❄️",
+		"ambiente": "gelo",
+		"descricao": "Mamífero de grande porte que vive no Ártico, caça focas no gelo e está ameaçado pelo derretimento das geleiras causado pelas mudanças climáticas.",
+		"dicas": [
+			"É um mamífero de grande porte com pelagem clara.",
+			"Tem pelagem branca e vive em regiões com temperaturas muito negativas.",
+			"Vive no Ártico, caça focas no gelo e está ameaçado pelo derretimento das geleiras."
+		]
+	},
+	{
+		"id": 12,
+		"nome": "Pinguim",
+		"emoji": "🐧",
+		"ambiente": "gelo",
+		"descricao": "Ave que não voa, mas nada com maestria. Habita a Antártida em grandes colônias e possui penas impermeáveis e gordura corporal para suportar o frio extremo.",
+		"dicas": [
+			"É uma ave que não consegue voar, mas nada muito bem.",
+			"Vive em um dos ambientes mais frios do planeta em grandes colônias.",
+			"Habita a Antártida, tem penas impermeáveis e gordura corporal para suportar o frio extremo."
+		]
+	},
+	{
+		"id": 13,
+		"nome": "Foca",
+		"emoji": "🦭",
+		"ambiente": "gelo",
+		"descricao": "Mamífero das regiões polares com espessa camada de gordura protetora. Descansa sobre o gelo e é a presa principal do urso polar.",
+		"dicas": [
+			"É um mamífero que vive tanto na água quanto em superfícies geladas.",
+			"Tem uma camada grossa de gordura para se proteger do frio extremo.",
+			"Vive nas regiões polares, descansa sobre o gelo e é presa principal do urso polar."
+		]
+	},
+	{
+		"id": 14,
+		"nome": "Cubo de Gelo",
+		"emoji": "🧊",
+		"ambiente": "gelo",
+		"descricao": "Estado sólido da água, abundante nos polos e em geleiras das regiões mais frias do planeta. Indica temperaturas abaixo de zero grau.",
+		"dicas": [
+			"É uma forma sólida de uma substância muito comum na natureza.",
+			"É água congelada, encontrada naturalmente em regiões com temperaturas abaixo de zero.",
+			"É o estado sólido da água, abundante nos polos e em geleiras das regiões mais frias do planeta."
+		]
+	},
+	{
+		"id": 15,
+		"nome": "Boneco de Neve",
+		"emoji": "⛄",
+		"ambiente": "gelo",
+		"descricao": "Escultura feita de neve compactada, comum em regiões polares ou de inverno rigoroso. Representa o inverno e as baixas temperaturas da natureza.",
+		"dicas": [
+			"É uma figura feita por humanos em dias muito frios.",
+			"É construído com um material branco que só aparece em temperaturas muito baixas.",
+			"É uma escultura feita de neve compactada, comum em regiões polares ou de inverno rigoroso."
+		]
+	},
+	{
+		"id": 16,
+		"nome": "Onça-Pintada",
+		"emoji": "🐆",
+		"ambiente": "floresta",
+		"descricao": "Maior felino das Américas, predador de topo da floresta amazônica. Suas manchas ajudam na camuflagem e está ameaçada pelo desmatamento.",
+		"dicas": [
+			"É o maior felino das Américas.",
+			"Tem manchas pelo corpo e vive em áreas de mata densa.",
+			"Habita a floresta amazônica, é predador de topo e está ameaçada pelo desmatamento."
+		]
+	},
+	{
+		"id": 17,
+		"nome": "Tucano",
+		"emoji": "🦜",
+		"ambiente": "floresta",
+		"descricao": "Símbolo da biodiversidade tropical com bico enorme e colorido. Vive no topo das árvores, alimenta-se de frutos e dispersa sementes pela floresta.",
+		"dicas": [
+			"É uma ave muito colorida com um bico bem característico.",
+			"Tem um bico enorme e colorido e se alimenta principalmente de frutos.",
+			"É símbolo da biodiversidade tropical, vive no topo das árvores e dispersa sementes pela floresta."
+		]
+	},
+	{
+		"id": 18,
+		"nome": "Cogumelo",
+		"emoji": "🍄",
+		"ambiente": "floresta",
+		"descricao": "Fungo que prospera no chão úmido das florestas, crescendo no solo ou em troncos em decomposição. Fundamental para o ciclo de nutrientes do ecossistema.",
+		"dicas": [
+			"É um organismo que cresce em locais úmidos e sombreados.",
+			"Não é planta nem animal, cresce no solo ou em troncos em decomposição.",
+			"É um fungo que prospera no chão úmido das florestas, fundamental para a decomposição e o ciclo de nutrientes."
+		]
+	},
+	{
+		"id": 19,
+		"nome": "Macaco",
+		"emoji": "🐒",
+		"ambiente": "floresta",
+		"descricao": "Primata de florestas tropicais que usa os braços para se balançar entre galhos. Come frutos, dispersa sementes e vive no dossel das matas.",
+		"dicas": [
+			"É um animal que vive em grupos e se locomove agilmente.",
+			"Usa os braços para se balançar entre galhos de árvores altas.",
+			"É um primata de florestas tropicais que come frutos, dispersa sementes e vive no dossel das matas."
+		]
+	},
+	{
+		"id": 20,
+		"nome": "Árvore",
+		"emoji": "🌳",
+		"ambiente": "floresta",
+		"descricao": "Elemento principal das florestas: abriga animais, regula o clima e retém carbono da atmosfera. Tem raízes, tronco, galhos e folhas, podendo atingir grande altura.",
+		"dicas": [
+			"É um ser vivo que realiza fotossíntese e fornece oxigênio.",
+			"Tem raízes, tronco, galhos e folhas, podendo atingir grande altura.",
+			"É o elemento principal das florestas, abriga animais, regula o clima e retém o carbono da atmosfera."
+		]
+	},
+	{
+		"id": 21,
+		"nome": "Garrafa PET",
+		"emoji": "🧴",
+		"ambiente": "lixao",
+		"descricao": "Embalagem plástica que leva até 400 anos para se degradar. Quando não reciclada, é um dos maiores vilões dos lixões e dos oceanos.",
+		"dicas": [
+			"É um objeto descartável feito de um material que demora muito para se decompor.",
+			"É feita de plástico e, quando não reciclada, é descartada incorretamente.",
+			"É uma embalagem plástica que leva até 400 anos para se degradar e é um dos maiores vilões dos lixões."
+		]
+	},
+	{
+		"id": 22,
+		"nome": "Pneu Velho",
+		"emoji": "🔧",
+		"ambiente": "lixao",
+		"descricao": "Resíduo de borracha vulcanizada que não se decompõe facilmente. Quando descartado irregularmente, acumula água e vira criadouro do mosquito da dengue.",
+		"dicas": [
+			"É uma peça de borracha usada em veículos que, quando descartada, causa problemas.",
+			"Quando jogado irregularmente, acumula água e vira criadouro de mosquitos.",
+			"É um resíduo de borracha vulcanizada que não se decompõe facilmente e é frequentemente descartado em lixões, favorecendo a dengue."
+		]
+	},
+	{
+		"id": 23,
+		"nome": "Lâmpada Queimada",
+		"emoji": "💡",
+		"ambiente": "lixao",
+		"descricao": "Lâmpadas fluorescentes contêm mercúrio e devem ser levadas a ecopontos. Quando descartadas em lixões, contaminam o solo e o lençol freático.",
+		"dicas": [
+			"É um objeto eletrônico que, após o fim da sua vida útil, precisa de descarte especial.",
+			"Contém substâncias tóxicas que contaminam o solo se descartada incorretamente.",
+			"Uma lâmpada fluorescente contém mercúrio e deve ser levada a ecopontos, mas muitas acabam em lixões contaminando o lençol freático."
+		]
+	},
+	{
+		"id": 24,
+		"nome": "Caixa de Papelão",
+		"emoji": "📦",
+		"ambiente": "lixao",
+		"descricao": "Embalagem reciclável muito comum. Quando não vai para a coleta seletiva, acaba em lixões ocupando espaço que poderia ser evitado com o descarte correto.",
+		"dicas": [
+			"É uma embalagem muito comum usada para transportar objetos.",
+			"É feita de papel comprimido e, quando descartada, vai para locais de resíduos.",
+			"É uma embalagem reciclável que, quando não vai para a coleta seletiva, acaba em lixões ocupando espaço desnecessário."
+		]
+	},
+	{
+		"id": 25,
+		"nome": "Lata Amassada",
+		"emoji": "🥫",
+		"ambiente": "lixao",
+		"descricao": "Embalagem metálica de alumínio ou aço 100% reciclável. Quando descartada em lixões, pode levar até 200 anos para se decompor na natureza.",
+		"dicas": [
+			"É um objeto metálico usado como embalagem de alimentos ou bebidas.",
+			"É feita de alumínio ou aço e, quando descartada, demora anos para se decompor.",
+			"É uma embalagem metálica que pode ser reciclada, mas frequentemente é descartada em lixões, levando até 200 anos para se decompor."
+		]
+	},
+	{
+		"id": 26,
+		"nome": "Carro",
+		"emoji": "🚗",
+		"ambiente": "cidade",
+		"descricao": "Principal meio de transporte individual urbano e responsável por grande parte da poluição do ar nas cidades. Circula por ruas e avenidas do ambiente urbano.",
+		"dicas": [
+			"É um veículo motorizado muito comum no dia a dia das pessoas.",
+			"Circula por ruas e avenidas e é o principal meio de transporte individual urbano.",
+			"É o automóvel particular, símbolo da mobilidade urbana, responsável por grande parte da poluição do ar nas cidades."
+		]
+	},
+	{
+		"id": 27,
+		"nome": "Prédio",
+		"emoji": "🏢",
+		"ambiente": "cidade",
+		"descricao": "Construção urbana de múltiplos pavimentos em concreto e aço que concentra moradia e trabalho. Símbolo da verticalização das cidades modernas.",
+		"dicas": [
+			"É uma grande construção feita pelo ser humano com vários andares.",
+			"É uma edificação vertical de concreto e aço usada para morar ou trabalhar.",
+			"É uma construção urbana de múltiplos pavimentos que concentra moradia e trabalho, símbolo da verticalização das cidades modernas."
+		]
+	},
+	{
+		"id": 28,
+		"nome": "Semáforo",
+		"emoji": "🚦",
+		"ambiente": "cidade",
+		"descricao": "Dispositivo de sinalização instalado em cruzamentos urbanos com três cores (vermelho, amarelo e verde) para controlar o fluxo de veículos e a segurança de pedestres.",
+		"dicas": [
+			"É um equipamento com luzes coloridas visto nas ruas.",
+			"Tem três cores (vermelho, amarelo e verde) e serve para organizar o trânsito.",
+			"É um dispositivo de sinalização instalado em cruzamentos urbanos para controlar o fluxo de veículos e a segurança de pedestres."
+		]
+	},
+	{
+		"id": 29,
+		"nome": "Ônibus",
+		"emoji": "🚌",
+		"ambiente": "cidade",
+		"descricao": "Principal transporte público de superfície nas cidades. Reduz o número de carros nas ruas e a emissão de poluentes ao transportar muitas pessoas de uma vez.",
+		"dicas": [
+			"É um veículo grande que transporta muitas pessoas ao mesmo tempo.",
+			"Segue rotas fixas pelas ruas e é um meio de transporte coletivo.",
+			"É o principal transporte público de superfície nas cidades, reduz o número de carros nas ruas e a emissão de poluentes."
+		]
+	},
+	{
+		"id": 30,
+		"nome": "Poste de Luz",
+		"emoji": "💡",
+		"ambiente": "cidade",
+		"descricao": "Estrutura metálica de iluminação pública fixada nas vias urbanas que garante segurança e visibilidade nas cidades durante o período noturno.",
+		"dicas": [
+			"É uma estrutura alta que ilumina um espaço durante a noite.",
+			"É instalado nas calçadas e ruas para garantir visibilidade no período noturno.",
+			"É a iluminação pública urbana, estrutura metálica fixada nas vias que garante segurança e visibilidade nas cidades à noite."
+		]
+	}
 ]

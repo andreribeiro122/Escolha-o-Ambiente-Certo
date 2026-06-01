@@ -5,41 +5,164 @@
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Fundo escuro atrás do jogo, caso a tela seja muito grande */
-body {
-	background-color: #1e120c;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	overflow: hidden; /* Evita barras de rolagem */
-}
-
-/* Contêiner principal que segura a imagem e a interface */
+/* Fundo da tela do jogo */
 .game-container {
-	max-height: 100%;
+	min-height: 100vh;
+	width: 100vw;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	overflow: hidden; /* BLINDAGEM: Trava a tela no PC e impede pulos de layout */
 }
 
-/* Imagem de fundo do mapa */
-.game-bg {
+/* =========================================
+   ÁREA DO MAPA E ZONAS DE DROP
+   ========================================= */
+
+/* O "Sanduíche" do mapa que cresce até 1500px em telas gigantes */
+.map-wrapper {
+	position: relative;
 	width: 100%;
-	display: block;
-	/* A imagem fornecida já tem a moldura e o fundo de madeira */
+	max-width: clamp(900px, 65vw, 1500px);
 }
 
-/* Camada da Interface de Usuário (UI) posicionada na madeira inferior */
-.ui-layer {
+.map-image {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 15px;
+}
+
+/* Configuração base para todas as zonas invisíveis */
+.drop-zone {
 	position: absolute;
-	bottom: 6%; /* Ajuste este valor para subir ou descer os botões na madeira */
+	top: 0;
 	left: 0;
 	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 10%;
+	height: 100%;
+	background-color: transparent;
 }
 
-/* Estilo base para botões */
+/* Recortes Poligonais Individuais */
+.zone-cidade {
+	clip-path: polygon(
+		0 28%,
+		0 63%,
+		5% 62%,
+		9% 53%,
+		13% 46%,
+		17% 41%,
+		24% 36%,
+		29% 25%,
+		28% 22%,
+		27% 17%,
+		27% 9%,
+		27% 0,
+		0 0
+	);
+}
+.zone-lixao {
+	clip-path: polygon(
+		0 100%,
+		13% 100%,
+		40% 99%,
+		39% 83%,
+		35% 70%,
+		32% 60%,
+		32% 51%,
+		33% 42%,
+		33% 35%,
+		31% 27%,
+		29% 24%,
+		25% 35%,
+		17% 41%,
+		10% 51%,
+		5% 62%,
+		0 63%
+	);
+}
+.zone-mar {
+	clip-path: polygon(
+		29% 25%,
+		27% 15%,
+		27% 0,
+		67% 0,
+		67% 14%,
+		69% 21%,
+		67% 28%,
+		62% 33%,
+		57% 35%,
+		52% 39%,
+		46% 42%,
+		35% 38%
+	);
+}
+.zone-deserto {
+	clip-path: polygon(
+		33% 34%,
+		37% 38%,
+		46% 41%,
+		53% 37%,
+		60% 33%,
+		65% 29%,
+		69% 23%,
+		71% 25%,
+		76% 27%,
+		80% 33%,
+		78% 40%,
+		76% 55%,
+		71% 66%,
+		65% 72%,
+		62% 74%,
+		58% 81%,
+		56% 92%,
+		39% 91%,
+		38% 84%,
+		36% 75%,
+		33% 68%,
+		31% 60%,
+		32% 46%
+	);
+}
+.zone-floresta {
+	clip-path: polygon(
+		66% 14%,
+		66% 7%,
+		66% 0,
+		100% 0,
+		100% 52%,
+		97% 51%,
+		91% 46%,
+		85% 43%,
+		80% 34%,
+		76% 29%,
+		73% 28%,
+		69% 23%
+	);
+}
+.zone-gelo {
+	clip-path: polygon(
+		79% 32%,
+		77% 44%,
+		75% 55%,
+		71% 65%,
+		67% 69%,
+		59% 77%,
+		56% 90%,
+		67% 94%,
+		100% 100%,
+		100% 53%,
+		97% 50%,
+		93% 46%,
+		87% 44%,
+		83% 38%
+	);
+}
+
+/* =========================================
+   INTERFACE INFERIOR E BOTÕES
+   ========================================= */
+
 .btn {
 	cursor: pointer;
 	font-weight: bold;
@@ -51,14 +174,13 @@ body {
 }
 
 .btn:active {
-	transform: translateY(3px); /* Efeito de botão sendo apertado */
+	transform: translateY(3px);
 }
-
 .btn:hover {
-	filter: brightness(1.15); /* Fica mais claro ao passar o mouse */
+	filter: brightness(1.15);
 }
 
-/* Botão "Voltar" (Inferior Esquerdo) */
+/* Botão Voltar */
 .btn-back {
 	background: linear-gradient(to bottom, #7b4c2a, #4a2d18);
 	color: #fcebbb;
@@ -72,14 +194,14 @@ body {
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-/* Agrupa o botão de dica e a pontuação na direita */
-.right-controls {
-	display: flex;
-	align-items: center;
-	gap: 40px;
+.btn-back:active {
+	box-shadow:
+		0 2px 0 #2b170c,
+		0 3px 5px rgba(0, 0, 0, 0.5);
+	transform: translateY(4px);
 }
 
-/* Botão de "Dica" */
+/* Botão Dica */
 .btn-hint {
 	background: linear-gradient(to bottom, #e3b754, #b9842a);
 	color: #2b170c;
@@ -93,18 +215,24 @@ body {
 	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
 }
 
-/* Destaque para o custo de pontos na dica */
+.btn-hint:active {
+	box-shadow:
+		0 2px 0 #6b4710,
+		0 3px 5px rgba(0, 0, 0, 0.5);
+	transform: translateY(4px);
+}
+
 .hint-cost {
-	color: #9e1b1b; /* Vermelho escuro para indicar custo */
+	color: #9e1b1b;
 	font-weight: 900;
 	font-size: 20px;
 	margin-left: 5px;
 }
 
-/* Display de Pontuação (Inferior Direito) */
+/* Display do Total de Pontos */
 .score-display {
 	background: linear-gradient(to bottom, #3a2214, #21120a);
-	color: #ffd700; /* Cor dourada */
+	color: #ffd700;
 	border: 3px solid #140b06;
 	padding: 18px 32px;
 	border-radius: 12px;
@@ -118,21 +246,223 @@ body {
 }
 
 .score-display span {
-	color: #ffffff; /* O número em si fica branco para dar contraste */
+	color: #ffffff;
 	margin-left: 8px;
 }
 
-/* Para ajustar o visual do clique nos botões devido à sombra 3D */
-.btn-back:active,
-.btn-hint:active {
-	box-shadow:
-		0 2px 0 #2b170c,
-		0 3px 5px rgba(0, 0, 0, 0.5);
-	transform: translateY(4px);
+/* =========================================
+   ELEMENTO ARRASTÁVEL (FÍSICO E VISUAL)
+   ========================================= */
+.item-physical-envelope {
+	position: relative;
+	touch-action: none;
 }
 
-.btn-hint:active {
+.item-draggable {
+	font-size: 55px; /* Emoji reduzido drasticamente (era 80px) */
+	background: rgba(255, 255, 255, 0.2);
+	border: 4px solid #ffc107;
+	border-radius: 15px; /* Reduzido */
+	padding: 8px 20px; /* Caixinha reduzida */
 	box-shadow:
-		0 2px 0 #6b4710,
-		0 3px 5px rgba(0, 0, 0, 0.5);
+		0 8px 15px rgba(0, 0, 0, 0.5),
+		inset 0 0 10px rgba(255, 255, 255, 0.3);
+	text-align: center;
+	backdrop-filter: blur(5px);
+}
+
+.pointer-none {
+	pointer-events: none;
+}
+
+.item-title {
+	font-size: 14px;
+}
+
+.item-name {
+	font-size: 16px;
+	max-width: 100%;
+	word-wrap: break-word;
+	text-align: center;
+	margin-top: 5px;
+	padding: 0 10px;
+}
+
+/* =========================================
+   ANIMAÇÕES E POP-UPS
+   ========================================= */
+
+@keyframes smokeAppear {
+	0% {
+		opacity: 0;
+		transform: scale(0.5) translateY(50px);
+		filter: blur(10px);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.2) translateY(-10px);
+		filter: blur(2px);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+		filter: blur(0);
+	}
+}
+
+.smoke-effect {
+	animation: smokeAppear 0.6s ease-out forwards;
+}
+
+/* 1. Animação Otimizada (Sem empurrar a tela e com zoom mais suave) */
+@keyframes popupAppear {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.5); /* Removido o translateY */
+		filter: blur(8px);
+	}
+	50% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1.05); /* Reduzido o zoom de 1.2 para 1.05 */
+		filter: blur(2px);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+		filter: blur(0);
+	}
+}
+
+.feedback-popup {
+	position: fixed; /* MUDANÇA DE OURO: 'fixed' impede que o elemento interaja com barras de rolagem */
+	top: 35%;
+	left: 50%;
+	background: rgba(0, 0, 0, 0.85);
+	color: #fff;
+	padding: 20px 30px;
+	border-radius: 15px;
+	border: 3px solid #ffc107;
+	font-size: 24px;
+	text-align: center;
+	z-index: 2000;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+	animation: popupAppear 0.3s ease-out forwards;
+}
+
+.feedback-popup span {
+	font-size: 60px;
+}
+
+/* =========================================
+   HUD: SEÇÕES DE ALINHAMENTO PERFEITO
+   ========================================= */
+/* No celular, os blocos ocupam 100%. No PC, eles dividem o espaço por igual (flex: 1), garantindo que o centro fique 100% centralizado na tela! */
+.hud-section {
+	width: 100%;
+}
+@media (min-width: 768px) {
+	.hud-section {
+		flex: 1;
+		width: auto;
+	}
+}
+
+/* =========================================
+   CARDS FLUTUANTES (ACIMA DO ITEM)
+   ========================================= */
+.floating-info {
+	/* REMOVEMOS O ABSOLUTE! Agora ele faz parte do layout real */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end; /* Se tiver só o card de pontos, ele fica colado embaixo */
+	pointer-events: none;
+	width: 280px;
+	height: 50px; /* RESERVA DE ESPAÇO: Impede a tela de dar saltos quando a dica aparece! */
+	margin-bottom: 8px; /* Espaço entre o card e o emoji */
+	z-index: 10;
+}
+
+.valendo-card {
+	background: linear-gradient(to bottom, #4a2d18, #2b170c);
+	color: #fcebbb;
+	border: 2px solid #e3b754;
+	padding: 5px 15px; /* Reduzido */
+	border-radius: 15px; /* Reduzido */
+	font-size: 14px; /* Fonte reduzida */
+	font-weight: bold;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 8px; /* Margem reduzida */
+	display: inline-block;
+}
+
+.valendo-card span {
+	color: #ffd700;
+	font-size: 18px; /* Número reduzido (era 22px) */
+	margin-left: 5px;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.dica-box {
+	background: #b9842a;
+	color: white;
+	padding: 10px 15px; /* Reduzido */
+	border-radius: 10px;
+	border: 3px solid #6b4710;
+	width: 100%;
+	font-size: 14px; /* Fonte reduzida */
+	text-align: center;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+	margin-bottom: 8px; /* Margem reduzida */
+}
+
+/* =========================================
+   RESPONSIVIDADE (Telas menores que 768px)
+   ========================================= */
+@media (max-width: 768px) {
+	game-container {
+		overflow-y: auto; /* Devolve a rolagem apenas para o celular */
+	}
+
+	.btn-back,
+	.btn-hint,
+	.score-display {
+		padding: 10px 15px;
+		font-size: 16px;
+		border-radius: 8px;
+	}
+
+	.hint-cost {
+		font-size: 14px;
+	}
+	.score-display {
+		font-size: 18px;
+	}
+
+	.item-draggable {
+		font-size: 45px; /* Ainda menor no celular */
+		padding: 5px 15px;
+	}
+
+	.item-name {
+		font-size: 13px !important;
+	}
+
+	.feedback-popup {
+		font-size: 18px;
+		padding: 15px 20px;
+		width: 80%;
+	}
+
+	.feedback-popup span {
+		font-size: 40px !important;
+	}
+
+	.dica-box {
+		width: 250px;
+		font-size: 14px;
+		bottom: 110%;
+	}
 }
