@@ -1,44 +1,209 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../assets/css/tela_inicial.css";
-import logo from "../assets/images/LOGO_JOGO.png";
+import logo from "../assets/images/LOGO_JOGO.svg";
 import itensData from "../assets/dados/intens.json";
-import fundoJogo from "../assets/images/FUNDO_JOGO.png";
+import fundoJogo from "../assets/images/FUNDO_JOGO.svg";
 
-function TelaInicial({ aoIniciarJogo, recorde, itensDesbloqueados }) {
+// Adicionamos a prop "aoImportarSave" para enviar os dados de volta ao App.jsx
+function TelaInicial({
+	aoIniciarJogo,
+	recorde,
+	itensDesbloqueados,
+	aoImportarSave,
+}) {
 	const [modalGlossario, setModalGlossario] = useState(false);
 	const [modalEquipe, setModalEquipe] = useState(false);
 	const [modalConfig, setModalConfig] = useState(false);
 
-	const renderizarGlossario = () => {
-		const itensParaMostrar = itensData.filter((item) =>
-			itensDesbloqueados.includes(item.id),
-		);
-		if (itensParaMostrar.length === 0) {
-			return (
-				<p className="text-center text-white mt-4">
-					Você ainda não descobriu nenhum item. Jogue para
-					desbloquear!
-				</p>
-			);
+	const [ambienteAberto, setAmbienteAberto] = useState(null);
+
+	// Referência para o input de arquivo invisível
+	const fileInputRef = useRef(null);
+
+	const nomesAmbientes = {
+		cidade: "🏙️ Cidade",
+		lixao: "🗑️ Lixão",
+		mar: "🌊 Mar",
+		deserto: "🏜️ Deserto",
+		floresta: "🌲 Floresta",
+		gelo: "❄️ Gelo",
+	};
+
+	const alternarAmbiente = (ambiente) => {
+		if (ambienteAberto === ambiente) {
+			setAmbienteAberto(null);
+		} else {
+			setAmbienteAberto(ambiente);
 		}
-		return itensParaMostrar.map((item) => (
-			<div
-				key={item.id}
-				className="glossary-item mb-3 d-flex flex-column flex-sm-row align-items-center text-center text-sm-start bg-dark p-3 rounded"
-			>
-				<div className="glossary-icon fs-1 mb-2 mb-sm-0 me-sm-3">
-					{item.emoji}
-				</div>
-				<div>
-					<h3 className="glossary-title text-warning fs-5 fs-sm-4">
-						{item.nome}
-					</h3>
-					<p className="glossary-desc text-white mb-0 fs-6">
-						{item.descricao}
-					</p>
-				</div>
+	};
+
+	// ==========================================
+	// LÓGICA DE SAVE: BAIXAR E IMPORTAR
+	// ==========================================
+	const baixarSave = () => {
+		// 1. Reúne os dados atuais do jogador
+		const dadosSave = {
+			recorde: recorde,
+			itensDesbloqueados: itensDesbloqueados,
+		};
+
+		// 2. Converte para texto JSON
+		const stringJson = JSON.stringify(dadosSave);
+
+		// 3. Cria um arquivo virtual e força o download
+		const blob = new Blob([stringJson], { type: "application/json" });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement("a");
+		a.href = url;
+		a.download = "meu_save_ecoquest.json"; // Nome do arquivo que será baixado
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+	};
+
+	const lidarComUploadSave = (evento) => {
+		const arquivo = evento.target.files[0];
+		if (!arquivo) return;
+
+		// 1. Lê o arquivo enviado
+		const leitor = new FileReader();
+		leitor.onload = (e) => {
+			try {
+				// 2. Transforma o texto de volta em objeto JavaScript
+				const dadosImportados = JSON.parse(e.target.result);
+
+				// 3. Verifica se o arquivo tem o formato certo
+				if (
+					dadosImportados.recorde !== undefined &&
+					Array.isArray(dadosImportados.itensDesbloqueados)
+				) {
+					// Manda os dados lá para o App.jsx
+					if (aoImportarSave) {
+						aoImportarSave(
+							dadosImportados.recorde,
+							dadosImportados.itensDesbloqueados,
+						);
+					}
+					alert("✅ Save importado com sucesso!");
+					setModalConfig(false); // Fecha a tela de config
+				} else {
+					alert(
+						"❌ Arquivo de save inválido ou corrompido.",
+					);
+				}
+			} catch (erro) {
+				alert("❌ Erro ao ler o arquivo de save.");
+			}
+		};
+		leitor.readAsText(arquivo);
+
+		// Limpa o input para poder importar o mesmo arquivo novamente se precisar
+		evento.target.value = null;
+	};
+
+	// ==========================================
+	// RENDERIZAÇÃO DO GLOSSÁRIO
+	// ==========================================
+	const renderizarGlossario = () => {
+		const itensAgrupados = itensData.reduce((acumulador, item) => {
+			if (!acumulador[item.ambiente]) {
+				acumulador[item.ambiente] = [];
+			}
+			acumulador[item.ambiente].push(item);
+			return acumulador;
+		}, {});
+
+		return (
+			<div className="glossario-container text-start w-100 mt-2">
+				{Object.keys(itensAgrupados).map((ambienteChave) => (
+					<div key={ambienteChave} className="mb-3">
+						<button
+							className="btn btn-dark w-100 d-flex justify-content-between align-items-center fw-bold border border-warning"
+							onClick={() =>
+								alternarAmbiente(ambienteChave)
+							}
+							style={{
+								borderRadius: "8px",
+								padding: "12px 20px",
+							}}
+						>
+							<span className="text-warning fs-5">
+								{nomesAmbientes[
+									ambienteChave
+								] || ambienteChave}
+							</span>
+							<span className="text-white fs-5">
+								{ambienteAberto ===
+								ambienteChave
+									? "▲"
+									: "▼"}
+							</span>
+						</button>
+
+						{ambienteAberto === ambienteChave && (
+							<div
+								className="p-3 mt-2 text-white wood-panel border border-warning shadow-sm"
+								style={{ borderRadius: "8px" }}
+							>
+								<ul className="list-unstyled mb-0">
+									{itensAgrupados[
+										ambienteChave
+									].map((item) => {
+										const isDesbloqueado =
+											itensDesbloqueados.includes(
+												item.id,
+											);
+										return (
+											<li
+												key={
+													item.id
+												}
+												className="d-flex align-items-center mb-3 pb-3 border-bottom border-secondary last-no-border"
+											>
+												<div
+													className="fs-1 me-3"
+													style={
+														!isDesbloqueado
+															? {
+																	filter: "brightness(0)",
+																	opacity: 0.3,
+																	userSelect:
+																		"none",
+																}
+															: {}
+													}
+												>
+													{
+														item.emoji
+													}
+												</div>
+												<div>
+													<strong
+														className={`d-block fs-5 ${isDesbloqueado ? "text-warning" : "text-secondary"}`}
+													>
+														{isDesbloqueado
+															? item.nome
+															: "???"}
+													</strong>
+													{isDesbloqueado && (
+														<small className="text-light">
+															{
+																item.descricao
+															}
+														</small>
+													)}
+												</div>
+											</li>
+										);
+									})}
+								</ul>
+							</div>
+						)}
+					</div>
+				))}
 			</div>
-		));
+		);
 	};
 
 	return (
@@ -55,7 +220,6 @@ function TelaInicial({ aoIniciarJogo, recorde, itensDesbloqueados }) {
 				overflowX: "hidden",
 			}}
 		>
-			{/* NAVEGAÇÃO SUPERIOR - Paddings responsivos (p-2 no celular, p-4 no PC) */}
 			<nav className="fixed-top p-2 p-md-4 d-flex justify-content-between w-100">
 				<button
 					className="btn btn-wood px-3 px-md-4 py-2 rounded shadow text-uppercase fw-bold text-white fs-6 fs-md-5"
@@ -75,7 +239,6 @@ function TelaInicial({ aoIniciarJogo, recorde, itensDesbloqueados }) {
 				</button>
 			</nav>
 
-			{/* CONTEÚDO CENTRAL - Tamanho do painel e imagem responsivos */}
 			<main
 				className="wood-panel p-3 p-md-5 text-center shadow-lg rounded"
 				style={{
@@ -100,7 +263,6 @@ function TelaInicial({ aoIniciarJogo, recorde, itensDesbloqueados }) {
 				</button>
 			</main>
 
-			{/* RODAPÉ - Flex-wrap para evitar quebra de layout */}
 			<footer className="fixed-bottom p-2 p-md-4 d-flex flex-wrap justify-content-between align-items-center w-100 gap-2">
 				<button
 					className="btn btn-wood px-3 py-2 rounded shadow text-white text-uppercase fs-6 fs-md-5"
@@ -108,14 +270,11 @@ function TelaInicial({ aoIniciarJogo, recorde, itensDesbloqueados }) {
 				>
 					Equipe
 				</button>
-
 				<div className="hud-box text-warning bg-dark p-2 px-md-3 py-md-2 rounded border border-warning shadow fw-bold fs-6 fs-md-5 text-center">
 					RECORDE: <br className="d-block d-sm-none" />{" "}
 					{recorde}
 				</div>
 			</footer>
-
-			{/* ================= MODAIS (POP-UPS) ================= */}
 
 			{/* MODAL GLOSSÁRIO */}
 			{modalGlossario && (
@@ -186,7 +345,7 @@ function TelaInicial({ aoIniciarJogo, recorde, itensDesbloqueados }) {
 				</div>
 			)}
 
-			{/* MODAL CONFIGURAÇÕES */}
+			{/* MODAL CONFIGURAÇÕES (ATUALIZADO) */}
 			{modalConfig && (
 				<div
 					className="modal d-block"
@@ -210,18 +369,40 @@ function TelaInicial({ aoIniciarJogo, recorde, itensDesbloqueados }) {
 								></button>
 							</div>
 							<div className="modal-body d-flex flex-column gap-2 gap-md-3 p-3 p-md-4">
-								<button className="btn btn-outline-light fs-6 fs-md-5">
-									Diminuir Música 🔉
-								</button>
-								<button className="btn btn-outline-light fs-6 fs-md-5">
-									Mudar Linguagem 🌐
-								</button>
-								<button className="btn btn-success fs-6 fs-md-5">
+								{/* Input Invisível para o Upload */}
+								<input
+									type="file"
+									accept=".json"
+									style={{
+										display: "none",
+									}}
+									ref={fileInputRef}
+									onChange={
+										lidarComUploadSave
+									}
+								/>
+
+								<button
+									className="btn btn-success fs-6 fs-md-5 py-2"
+									onClick={baixarSave}
+								>
 									Baixar Save 💾
 								</button>
-								<button className="btn btn-primary fs-6 fs-md-5">
+
+								<button
+									className="btn btn-primary fs-6 fs-md-5 py-2"
+									onClick={() =>
+										fileInputRef.current.click()
+									}
+								>
 									Importar Save 📂
 								</button>
+
+								<small className="text-light text-center mt-2">
+									Exporte seu progresso para
+									jogar em outro
+									dispositivo!
+								</small>
 							</div>
 						</div>
 					</div>

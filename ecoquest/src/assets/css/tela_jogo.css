@@ -229,6 +229,10 @@
 	margin-left: 5px;
 }
 
+.hint-cost.free {
+	color: #28a745 !important; /* Cor verde para indicar que a primeira dica é de graça */
+}
+
 /* Display do Total de Pontos */
 .score-display {
 	background: linear-gradient(to bottom, #3a2214, #21120a);

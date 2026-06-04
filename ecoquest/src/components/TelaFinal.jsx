@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import "../assets/css/CSS.css";
+import "../assets/css/tela_final.css";
+import fundoJogo from "../assets/images/FUNDO_JOGO.svg";
 
 function TelaFinal({
 	pontuacaoAtual,
@@ -39,13 +40,13 @@ function TelaFinal({
 	return (
 		// Coloquei um fundo escuro genérico para garantir que a imagem de fundo do CSS apareça bem
 		<div
-			className="bg-dark"
+			className="d-flex flex-column justify-content-center align-items-center" // <-- Mantenha as suas classes de alinhamento
 			style={{
+				backgroundImage: `url(${fundoJogo})`,
+				backgroundSize: "cover",
+				backgroundPosition: "center",
 				minHeight: "100vh",
-				display: "flex",
-				justifyContent: "center",
-				alignItems: "center",
-				padding: "40px",
+				width: "100%",
 			}}
 		>
 			<div className="container">

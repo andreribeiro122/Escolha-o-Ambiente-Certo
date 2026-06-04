@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../assets/css/tela_jogo.css";
-import mapaBg from "../assets/images/MAPA.png";
+import mapaBg from "../assets/images/MAPA.svg";
 import itensData from "../assets/dados/intens.json";
-import fundoJogo from "../assets/images/FUNDO_JOGO.png";
+import fundoJogo from "../assets/images/FUNDO_JOGO.svg";
 
 function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 	// ESTADOS DO JOGO
@@ -23,7 +23,6 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 	const [startMouse, setStartMouse] = useState({ x: 0, y: 0 });
 	const [translate, setTranslate] = useState({ x: 0, y: 0 });
 
-	// ZONAS DE DROP (Organizado em Array para não poluir o HTML)
 	const zonasDeDrop = [
 		{ id: "cidade", classeCSS: "zone-cidade" },
 		{ id: "lixao", classeCSS: "zone-lixao" },
@@ -92,10 +91,14 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 		setTranslate({ x: 0, y: 0 });
 	};
 
-	// REGRAS DO JOGO
+	// REGRAS DE ERRO E ACERTO ATUALIZADAS
 	const tratarAcerto = () => {
 		setFeedback("acerto");
-		const novaPontuacao = pontuacaoTotal + pontosItemAtual;
+
+		// TRUQUE MÁGICO: Mesmo que o valor interno seja 0 (porque comprou dica), o prêmio mínimo é 5!
+		const pontosGanhos = Math.max(5, pontosItemAtual);
+		const novaPontuacao = pontuacaoTotal + pontosGanhos;
+
 		setPontuacaoTotal(novaPontuacao);
 		adicionarItem(itemAtual.id);
 
@@ -104,19 +107,29 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 		}, 1500);
 	};
 
+	// REGRAS DE ERRO E ACERTO ATUALIZADAS
 	const tratarErro = () => {
 		setFeedback("erro");
 		const novaTentativa = tentativasErradas + 1;
 		setTentativasErradas(novaTentativa);
 
 		if (novaTentativa === 1) {
-			setPontosItemAtual(Math.max(5, pontosItemAtual - 5));
-			setDicaAtual(itemAtual.dicas[0]);
-			setIndiceDica(1);
+			// Primeiro erro: Reduz 5 pontos (De 20 vai para 15)
+			setPontosItemAtual((prev) => Math.max(0, prev - 5));
+			// Aparece a dica genérica (não mexe nas dicas do botão)
+			setDicaAtual(
+				"Analise bem as características do item. Qual ambiente combina mais com ele?",
+			);
 		} else if (novaTentativa === 2) {
-			setPontosItemAtual(Math.max(5, pontosItemAtual - 10));
+			// Segundo erro: Reduz 10 pontos de uma vez (De 15 vai para 5)
+			setPontosItemAtual((prev) => Math.max(0, prev - 10));
+			// Limpa a dica da tela
+			setDicaAtual("");
 		} else if (novaTentativa >= 3) {
+			// Terceiro erro: Zera a pontuação e passa de fase
 			setPontosItemAtual(0);
+			setDicaAtual(""); // Mantém a tela limpa
+
 			setTimeout(() => {
 				avancarParaProximoItem(pontuacaoTotal);
 			}, 1500);
@@ -127,8 +140,12 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 	};
 
 	const pedirDica = () => {
-		if (indiceDica >= itemAtual.dicas.length) return;
-		setPontosItemAtual(Math.max(5, pontosItemAtual - 5));
+		// Trava: se não tem dicas ou não tem pelo menos 5 pontos, não faz nada
+		if (indiceDica >= itemAtual.dicas.length || pontosItemAtual < 5)
+			return;
+
+		// Desconta 5 pontos (agora cai para 0 se ele tinha 5)
+		setPontosItemAtual((prev) => Math.max(0, prev - 5));
 		setDicaAtual(itemAtual.dicas[indiceDica]);
 		setIndiceDica(indiceDica + 1);
 	};
@@ -162,7 +179,6 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 						draggable="false"
 					/>
 
-					{/* ZONAS INVISÍVEIS (Geradas automaticamente a partir do Array) */}
 					{zonasDeDrop.map((zona) => (
 						<div
 							key={zona.id}
@@ -178,8 +194,9 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 				<div className="feedback-popup border-success text-success">
 					<span>✅</span>
 					<br />
+					{/* Exibe sempre no mínimo +5 pts no balãozinho */}
 					<strong className="text-white">
-						Correto! +{pontosItemAtual} pts
+						Correto! +{Math.max(5, pontosItemAtual)} pts
 					</strong>
 				</div>
 			)}
@@ -194,8 +211,7 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 				</div>
 			)}
 
-			{/* HUD INFERIOR: Layout com 3 colunas */}
-			{/* A mágica do "align-items-md-end" faz os botões laterais acompanharem o emoji! */}
+			{/* HUD INFERIOR */}
 			<div className="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-end px-2 pt-2 pb-4 px-md-4 pt-md-2 pb-md-4 gap-3 gap-md-4 w-100 z-3">
 				{/* ESQUERDA: Botão Voltar */}
 				<div className="hud-section order-2 order-md-1 d-flex justify-content-center justify-content-md-start mb-2 mb-md-0">
@@ -209,7 +225,6 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 
 				{/* CENTRO: Item Arrastável, Card Valendo e Dica */}
 				<div className="hud-section order-1 order-md-2 d-flex flex-column align-items-center">
-					{/* ENVELOPE DAS INFOS (Agora empurra o mapa automaticamente, sem invadir!) */}
 					<div className="floating-info">
 						{dicaAtual && (
 							<div className="dica-box smoke-effect">
@@ -222,13 +237,38 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 							tentativasErradas < 3 && (
 								<div
 									key={`valendo-${animacaoKey}`}
-									className="valendo-card smoke-effect"
+									className="valendo-card smoke-effect text-center"
 								>
-									💰 Valendo:{" "}
+									{/* Exibe visualmente no mínimo 5 pts, não importa o que aconteça */}
+									💰 VALENDO:{" "}
 									<span>
-										{pontosItemAtual}{" "}
+										{Math.max(
+											5,
+											pontosItemAtual,
+										)}{" "}
 										pts
 									</span>
+									{/* SINALIZAÇÃO DE RISCO (O que acontece se errar) */}
+									<small
+										style={{
+											fontSize: "12px",
+											display: "block",
+											opacity: 0.9,
+											marginTop:
+												"4px",
+											color: "#ffaaaa",
+										}}
+									>
+										{tentativasErradas ===
+											0 &&
+											"Se errar: -5 pontos"}
+										{tentativasErradas ===
+											1 &&
+											"Se errar: -10 pontos"}
+										{tentativasErradas ===
+											2 &&
+											"Última chance!"}
+									</small>
 								</div>
 							)}
 					</div>
@@ -269,7 +309,7 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 								{itemAtual.emoji}
 							</div>
 
-							<div className="item-name text-warning fw-bold text-truncate mt-1 pointer-none">
+							<div className="mt-1 text-warning fw-bold item-name pointer-none">
 								{itemAtual.nome}
 							</div>
 						</div>
@@ -278,17 +318,20 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 
 				{/* DIREITA: Dica e Total de Pontos */}
 				<div className="hud-section order-3 d-flex flex-column flex-md-row gap-3 gap-md-4 align-items-center justify-content-center justify-content-md-end">
-					{/* Apenas o botão de Dica, sem o texto pequeno embaixo */}
 					<button
 						className="btn btn-hint"
 						onClick={pedirDica}
+						// O botão desativa se acabarem as dicas OU se ele não tiver 5 pontos
 						disabled={
-							indiceDica >= itemAtual.dicas.length
+							indiceDica >=
+								itemAtual.dicas.length ||
+							pontosItemAtual < 5
 						}
 						style={{
 							opacity:
 								indiceDica >=
-								itemAtual.dicas.length
+									itemAtual.dicas.length ||
+								pontosItemAtual < 5
 									? 0.5
 									: 1,
 						}}
