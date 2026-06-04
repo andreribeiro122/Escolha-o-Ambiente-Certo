@@ -331,7 +331,7 @@ function TelaInicial({
 								></button>
 							</div>
 							<div className="modal-body text-white p-3 p-md-4 fs-6 fs-md-5">
-								<p>
+								<p className="text-center mb-4">
 									Este jogo foi desenvolvido
 									com muito carinho e
 									dedicação para ensinar
@@ -339,6 +339,29 @@ function TelaInicial({
 									os ambientes do nosso
 									planeta!
 								</p>
+
+								<hr className="border-warning opacity-50 mx-4" />
+
+								<h6 className="text-warning fw-bold text-center mb-3 fs-5">
+									Desenvolvido por:
+								</h6>
+								<ul className="list-unstyled text-center lh-lg fw-semibold">
+									<li>
+										André Ribeiro de
+										Souza
+									</li>
+									<li>
+										André Nunes Valério
+									</li>
+									<li>
+										Clever Cristian
+										Blanco Mamani
+									</li>
+									<li>
+										Pedro Moura de
+										Oliveira
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>

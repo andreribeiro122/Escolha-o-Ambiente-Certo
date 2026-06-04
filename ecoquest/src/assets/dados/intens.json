@@ -50,7 +50,7 @@
 	{
 		"id": 5,
 		"nome": "Alga",
-		"emoji": "🌿",
+		"emoji": "🪸",
 		"ambiente": "mar",
 		"descricao": "Planta aquática encontrada em rios, lagos e oceanos que realiza fotossíntese e forma a base da cadeia alimentar marinha.",
 		"dicas": [
@@ -98,7 +98,7 @@
 	{
 		"id": 9,
 		"nome": "Pirâmide",
-		"emoji": "🏛️",
+		"emoji": "🛕",
 		"ambiente": "deserto",
 		"descricao": "Monumento histórico de forma triangular construído por antigas civilizações egípcias no meio da areia de uma das regiões mais áridas do mundo.",
 		"dicas": [
@@ -254,7 +254,7 @@
 	{
 		"id": 22,
 		"nome": "Pneu Velho",
-		"emoji": "🔧",
+		"emoji": "🔘",
 		"ambiente": "lixao",
 		"descricao": "Resíduo de borracha vulcanizada que não se decompõe facilmente. Quando descartado irregularmente, acumula água e vira criadouro do mosquito da dengue.",
 		"dicas": [
