@@ -7,12 +7,11 @@
 
 /* Fundo da tela do jogo */
 .game-container {
-	min-height: 100vh;
+	height: 100dvh; /* <-- Troque 100vh por 100dvh */
 	width: 100vw;
+	overflow: hidden; /* <-- Isso impede a tela de rolar no celular */
 	background-size: cover;
 	background-position: center;
-	background-attachment: fixed;
-	overflow: hidden; /* BLINDAGEM: Trava a tela no PC e impede pulos de layout */
 }
 
 /* =========================================
@@ -195,8 +194,8 @@
 }
 
 .btn-back:hover {
-    color: #ffffff !important;
-    filter: brightness(1.1);
+	color: #ffffff !important;
+	filter: brightness(1.1);
 }
 
 .btn-back:active {

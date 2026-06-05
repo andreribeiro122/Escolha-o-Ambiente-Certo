@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../assets/css/tela_jogo.css";
-import mapaBg from "../assets/images/MAPA.svg";
+import mapaBg from "../assets/images/MAPA.png";
 import itensData from "../assets/dados/intens.json";
-import fundoJogo from "../assets/images/FUNDO_JOGO.svg";
+import fundoJogo from "../assets/images/FUNDO_JOGO.png";
 
 function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 	// ESTADOS DO JOGO
@@ -170,8 +170,11 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 			style={{ backgroundImage: `url(${fundoJogo})` }}
 		>
 			{/* ÁREA DO MAPA RESPONSIVO */}
-			<div className="flex-grow-1 d-flex justify-content-center align-items-center p-2 p-md-4 w-100">
-				<div className="map-wrapper">
+			<div className="flex-grow-1 d-flex justify-content-center align-items-end align-items-md-center p-2 p-md-4 pb-0 pb-md-4 w-100">
+				<div
+					className="map-wrapper"
+					style={{ marginBottom: "50px" }}
+				>
 					<img
 						src={mapaBg}
 						alt="Mapa de Aventura"
@@ -212,7 +215,7 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 			)}
 
 			{/* HUD INFERIOR */}
-			<div className="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-end px-2 pt-2 pb-4 px-md-4 pt-md-2 pb-md-4 gap-3 gap-md-4 w-100 z-3">
+			<div className="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-end px-2 pt-0 pb-2 px-md-4 pt-md-2 pb-md-4 gap-2 gap-md-4 w-100 z-3">
 				{/* ESQUERDA: Botão Voltar */}
 				<div className="hud-section order-2 order-md-1 d-flex justify-content-center justify-content-md-start mb-2 mb-md-0">
 					<button

@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import "../assets/css/tela_inicial.css";
-import logo from "../assets/images/LOGO_JOGO.svg";
+import logo from "../assets/images/LOGO_JOGO.png";
 import itensData from "../assets/dados/intens.json";
-import fundoJogo from "../assets/images/FUNDO_JOGO.svg";
+import fundoJogo from "../assets/images/FUNDO_JOGO.png";
 
 // Adicionamos a prop "aoImportarSave" para enviar os dados de volta ao App.jsx
 function TelaInicial({
@@ -41,21 +41,18 @@ function TelaInicial({
 	// LÓGICA DE SAVE: BAIXAR E IMPORTAR
 	// ==========================================
 	const baixarSave = () => {
-		// 1. Reúne os dados atuais do jogador
 		const dadosSave = {
 			recorde: recorde,
 			itensDesbloqueados: itensDesbloqueados,
 		};
 
-		// 2. Converte para texto JSON
 		const stringJson = JSON.stringify(dadosSave);
 
-		// 3. Cria um arquivo virtual e força o download
 		const blob = new Blob([stringJson], { type: "application/json" });
 		const url = URL.createObjectURL(blob);
 		const a = document.createElement("a");
 		a.href = url;
-		a.download = "meu_save_ecoquest.json"; // Nome do arquivo que será baixado
+		a.download = "meu_save_ecoquest.json";
 		document.body.appendChild(a);
 		a.click();
 		document.body.removeChild(a);
@@ -66,19 +63,15 @@ function TelaInicial({
 		const arquivo = evento.target.files[0];
 		if (!arquivo) return;
 
-		// 1. Lê o arquivo enviado
 		const leitor = new FileReader();
 		leitor.onload = (e) => {
 			try {
-				// 2. Transforma o texto de volta em objeto JavaScript
 				const dadosImportados = JSON.parse(e.target.result);
 
-				// 3. Verifica se o arquivo tem o formato certo
 				if (
 					dadosImportados.recorde !== undefined &&
 					Array.isArray(dadosImportados.itensDesbloqueados)
 				) {
-					// Manda os dados lá para o App.jsx
 					if (aoImportarSave) {
 						aoImportarSave(
 							dadosImportados.recorde,
@@ -86,7 +79,7 @@ function TelaInicial({
 						);
 					}
 					alert("✅ Save importado com sucesso!");
-					setModalConfig(false); // Fecha a tela de config
+					setModalConfig(false);
 				} else {
 					alert(
 						"❌ Arquivo de save inválido ou corrompido.",
@@ -98,7 +91,6 @@ function TelaInicial({
 		};
 		leitor.readAsText(arquivo);
 
-		// Limpa o input para poder importar o mesmo arquivo novamente se precisar
 		evento.target.value = null;
 	};
 
@@ -154,6 +146,7 @@ function TelaInicial({
 											itensDesbloqueados.includes(
 												item.id,
 											);
+
 										return (
 											<li
 												key={
@@ -215,9 +208,8 @@ function TelaInicial({
 				backgroundPosition: "center",
 				backgroundRepeat: "no-repeat",
 				backgroundAttachment: "fixed",
-				minHeight: "100vh",
-				overflowY: "auto",
-				overflowX: "hidden",
+				minHeight: "100dvh",
+				overflow: "hidden",
 			}}
 		>
 			<nav className="fixed-top p-2 p-md-4 d-flex justify-content-between w-100">
@@ -239,12 +231,11 @@ function TelaInicial({
 				</button>
 			</nav>
 
+			{/* ATUALIZADO: my-auto e margens removidas para centralizar sem vazar */}
 			<main
-				className="wood-panel p-3 p-md-5 text-center shadow-lg rounded"
+				className="wood-panel p-3 p-md-5 text-center shadow-lg rounded my-auto"
 				style={{
 					zIndex: 1,
-					marginTop: "80px",
-					marginBottom: "80px",
 					width: "90%",
 					maxWidth: "1200px",
 				}}
