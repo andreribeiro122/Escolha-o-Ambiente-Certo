@@ -97,6 +97,9 @@ function TelaInicial({
 	// ==========================================
 	// RENDERIZAÇÃO DO GLOSSÁRIO
 	// ==========================================
+	// ==========================================
+	// RENDERIZAÇÃO DO GLOSSÁRIO
+	// ==========================================
 	const renderizarGlossario = () => {
 		const itensAgrupados = itensData.reduce((acumulador, item) => {
 			if (!acumulador[item.ambiente]) {
@@ -212,9 +215,9 @@ function TelaInicial({
 				overflow: "hidden",
 			}}
 		>
-			<nav className="fixed-top p-2 p-md-4 d-flex justify-content-between w-100">
+			<nav className="fixed-top p-2 p-md-4 d-flex justify-content-between w-100 z-3">
 				<button
-					className="btn btn-wood px-3 px-md-4 py-2 rounded shadow text-uppercase fw-bold text-white fs-6 fs-md-5"
+					className="btn btn-wood px-4 py-2 px-md-5 py-md-3 rounded shadow text-uppercase fw-bold text-white fs-5 fs-md-4"
 					onClick={() => setModalGlossario(true)}
 				>
 					<span className="d-none d-sm-inline">
@@ -223,7 +226,7 @@ function TelaInicial({
 					<span className="d-inline d-sm-none">📖</span>
 				</button>
 				<button
-					className="btn btn-wood px-3 px-md-4 py-2 rounded shadow text-white fs-6 fs-md-5"
+					className="btn btn-wood px-4 py-2 px-md-5 py-md-3 rounded shadow text-white fw-bold fs-5 fs-md-4"
 					onClick={() => setModalConfig(true)}
 				>
 					⚙️{" "}
@@ -254,14 +257,14 @@ function TelaInicial({
 				</button>
 			</main>
 
-			<footer className="fixed-bottom p-2 p-md-4 d-flex flex-wrap justify-content-between align-items-center w-100 gap-2">
+			<footer className="fixed-bottom p-2 p-md-4 d-flex flex-wrap justify-content-between align-items-center w-100 gap-2 z-3">
 				<button
-					className="btn btn-wood px-3 py-2 rounded shadow text-white text-uppercase fs-6 fs-md-5"
+					className="btn btn-wood px-4 py-2 px-md-5 py-md-3 rounded shadow text-white text-uppercase fw-bold fs-5 fs-md-4"
 					onClick={() => setModalEquipe(true)}
 				>
 					Equipe
 				</button>
-				<div className="hud-box text-warning bg-dark p-2 px-md-3 py-md-2 rounded border border-warning shadow fw-bold fs-6 fs-md-5 text-center">
+				<div className="hud-box text-warning bg-dark px-4 py-2 px-md-5 py-md-3 rounded border border-warning shadow fw-bold fs-5 fs-md-4 text-center">
 					RECORDE: <br className="d-block d-sm-none" />{" "}
 					{recorde}
 				</div>

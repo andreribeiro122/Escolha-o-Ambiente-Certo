@@ -166,9 +166,39 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 
 	return (
 		<div
-			className="game-container d-flex flex-column"
+			className="game-container d-flex flex-column position-relative"
 			style={{ backgroundImage: `url(${fundoJogo})` }}
 		>
+			{/* DICA FLUTUANTE NO TOPO DA TELA (NÃO ATRAPALHA O MAPA) */}
+			{dicaAtual && (
+				<div
+					className="smoke-effect position-absolute top-0 start-50 translate-middle-x mt-3 mt-md-4 z-3 text-center shadow-lg d-flex flex-column justify-content-center align-items-center"
+					style={{
+						width: "92%",
+						maxWidth: "600px",
+						height: "auto" /* Libera a altura */,
+						minHeight:
+							"fit-content" /* Força a caixa a crescer com o texto */,
+						padding: "12px 20px" /* Dá um respiro lateral maior para o texto não colar na borda */,
+						borderRadius: "10px",
+						border: "2px solid #ffc107",
+						wordBreak:
+							"break-word" /* Evita que palavras muito longas quebrem o layout */,
+						backgroundColor: "#b18b23",
+					}}
+				>
+					<strong className="text-warning fs-5 mb-1">
+						💡 Dica:
+					</strong>
+					<span
+						className="text-white fs-6"
+						style={{ lineHeight: "1.4" }}
+					>
+						{dicaAtual}
+					</span>
+				</div>
+			)}
+
 			{/* ÁREA DO MAPA RESPONSIVO */}
 			<div className="flex-grow-1 d-flex justify-content-center align-items-end align-items-md-center p-2 p-md-4 pb-0 pb-md-4 w-100">
 				<div
@@ -229,12 +259,7 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 				{/* CENTRO: Item Arrastável, Card Valendo e Dica */}
 				<div className="hud-section order-1 order-md-2 d-flex flex-column align-items-center">
 					<div className="floating-info">
-						{dicaAtual && (
-							<div className="dica-box smoke-effect">
-								<strong>Dica:</strong>{" "}
-								{dicaAtual}
-							</div>
-						)}
+						{/* A CAIXA DE DICA FOI REMOVIDA DAQUI! */}
 
 						{feedback !== "acerto" &&
 							tentativasErradas < 3 && (
@@ -242,7 +267,6 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 									key={`valendo-${animacaoKey}`}
 									className="valendo-card smoke-effect text-center"
 								>
-									{/* Exibe visualmente no mínimo 5 pts, não importa o que aconteça */}
 									💰 VALENDO:{" "}
 									<span>
 										{Math.max(
@@ -251,7 +275,7 @@ function TelaJogo({ voltarInicio, aoFinalizar, adicionarItem }) {
 										)}{" "}
 										pts
 									</span>
-									{/* SINALIZAÇÃO DE RISCO (O que acontece se errar) */}
+									{/* SINALIZAÇÃO DE RISCO */}
 									<small
 										style={{
 											fontSize: "12px",

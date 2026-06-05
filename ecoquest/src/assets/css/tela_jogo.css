@@ -430,8 +430,8 @@
    RESPONSIVIDADE (Telas menores que 768px)
    ========================================= */
 @media (max-width: 768px) {
-	game-container {
-		overflow-y: auto; /* Devolve a rolagem apenas para o celular */
+	.game-container {
+		overflow-y: hidden;
 	}
 
 	.btn-back,

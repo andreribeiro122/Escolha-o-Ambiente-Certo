@@ -98,6 +98,7 @@ function TelaFinal({
 							<div
 								key={index}
 								className={`item-card ${obterClasseRaridade(item.ambiente)}`}
+								tabIndex="0" /* Isso permite que o celular entenda o toque como um hover/foco */
 							>
 								<div className="emoji">
 									{item.emoji}
