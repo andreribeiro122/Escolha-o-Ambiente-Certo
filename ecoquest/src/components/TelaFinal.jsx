@@ -84,7 +84,7 @@ function TelaFinal({
 						className="game-btn"
 						onClick={voltarInicio}
 					>
-						🔳 Voltar ao Início
+						🏡 Voltar ao Início
 					</button>
 				</div>
 
